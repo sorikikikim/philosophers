@@ -41,7 +41,6 @@ typedef struct s_state
 	int					died;
 	t_philo				philos[300];
 	pthread_mutex_t		forks[300];
-	pthread_mutex_t		lock;
 	pthread_mutex_t		write;
 }	t_state;
 

@@ -10,7 +10,6 @@ int	died_free(t_state *state)
 		pthread_mutex_destroy(&(state->forks[i]));
 		i++;
 	}
-	pthread_mutex_destroy(&(state->lock));
 	pthread_mutex_destroy(&(state->write));
 	free(state);
 	return (0);

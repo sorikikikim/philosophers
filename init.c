@@ -28,8 +28,6 @@ int	init(t_state *state, char **argv, int argc)
 	if (argc == 6)
 		state->must_eat = ft_atoi(argv[5]);
 	state->died = 0;
-	if (pthread_mutex_init(&state->lock, NULL))
-		return (0);
 	if (pthread_mutex_init(&state->write, NULL))
 		return (0);
 	init_philo(state->philos, state);
