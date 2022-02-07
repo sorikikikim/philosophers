@@ -33,15 +33,6 @@ void	take_fork(t_philo *philo)
 	msg(take_a_fork, philo);
 }
 
-void	put_fork(t_philo *philo)
-{
-	t_state	*state;
-
-	state = philo->state;
-	pthread_mutex_unlock(&(state->forks[philo->l_fk]));
-	pthread_mutex_unlock(&(state->forks[philo->r_fk]));
-}
-
 void	eating(t_philo *philo)
 {
 	t_state	*state;
@@ -51,6 +42,15 @@ void	eating(t_philo *philo)
 	philo->last_eat = gettime();
 	precise_sleep(state->time_eat, state);
 	(philo->total_eat)++;
+}
+
+void	put_fork(t_philo *philo)
+{
+	t_state	*state;
+
+	state = philo->state;
+	pthread_mutex_unlock(&(state->forks[philo->l_fk]));
+	pthread_mutex_unlock(&(state->forks[philo->r_fk]));
 }
 
 void	sleeping(t_philo *philo)

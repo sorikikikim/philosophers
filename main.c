@@ -36,13 +36,12 @@ static int	start_eating(t_state *state)
 
 	i = 0;
 	state->start = gettime();
-	i = 0;
 	while (i < state->nb)
 	{
 		if (pthread_create(&(state->philos[i].thread), NULL,
 				run, (void *)&(state->philos[i])))
 			return (1);
-		state->philos[i].last_eat = gettime();
+		state->philos[i].last_eat = state->start;
 		if (pthread_detach(state->philos[i].thread))
 			return (1);
 		i++;

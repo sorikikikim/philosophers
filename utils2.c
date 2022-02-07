@@ -5,7 +5,7 @@ unsigned long long	time_diff(unsigned long long past, unsigned long long pres)
 	return (pres - past);
 }
 
-void	precise_sleep(unsigned long long time, t_state *state)
+void	    precise_sleep(unsigned long long time, t_state *state)
 {
 	unsigned long long	i;
 
