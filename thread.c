@@ -40,7 +40,8 @@ void	eating(t_philo *philo)
 	state = philo->state;
 	msg(eat, philo);
 	philo->last_eat = gettime();
-	precise_sleep(state->time_eat, state);
+	usleep(1000 * state->time_eat);
+	//precise_sleep(state->time_eat, state);
 	(philo->total_eat)++;
 }
 
@@ -56,5 +57,7 @@ void	put_fork(t_philo *philo)
 void	sleeping(t_philo *philo)
 {
 	msg(sleeps, philo);
-	precise_sleep(philo->state->time_sleep, philo->state);
+	usleep(1000 * philo->state->time_sleep);
+
+	//precise_sleep(philo->state->time_sleep, philo->state);
 }
